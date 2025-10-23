@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Ramadhan Minimalis</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variabel Warna */
+        :root {
+            --color-primary: #B30000; /* Merah Tua */
+            --color-secondary: #FF4C4C; /* Merah Muda (Hover) */
+            --color-text: #B30000; /* Teks Merah Tua */
+            --color-background: #FFFFFF; /* Background Putih Bersih */
+        }
+
+        /* Reset dan Desain Umum */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--color-primary);
+            padding: 1rem 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-item button {
+            /* Diubah dari <a> ke <button> untuk navigasi JavaScript */
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--color-background); /* Teks putih */
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            display: block;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-item button:hover {
+            background-color: var(--color-secondary); /* Efek hover merah muda */
+        }
+        
+        /* Konten Utama Container */
+        .content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            /* Tambahkan transisi untuk efek perpindahan konten yang halus */
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Konten Spesifik (Disembunyikan/Ditampilkan oleh JS) */
+        .page-section {
+            display: none; /* Semua konten disembunyikan secara default */
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .page-section.active {
+            display: flex; /* Konten aktif ditampilkan */
+        }
+
+        /* Style Khusus Halaman HOME */
+        .instagram-icon {
+            width: 150px; /* Ukuran ikon cukup besar */
+            height: 150px;
+            margin-bottom: 1rem;
+            max-width: 100%;
+            transition: opacity 0.3s ease;
+        }
+
+        .icon-wrapper {
+            display: inline-block;
+        }
+
+        .icon-wrapper:hover .instagram-icon {
+            opacity: 0.8; /* Efek visual saat di-hover */
+        }
+
+        .home-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-text); /* Merah Tua */
+        }
+
+        /* Style Khusus Halaman ABOUT ME & CONTACT ME */
+        .page-text {
+            font-size: 1.5rem;
+            font-weight: 400;
+            max-width: 80%;
+        }
+
+        .contact-link {
+            color: var(--color-primary);
+            text-decoration: underline;
+            font-weight: 600;
+            font-size: 1.5rem; /* Sama dengan .page-text */
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsifitas */
+        @media (max-width: 768px) {
+            .nav-list {
+                flex-direction: column;
+            }
+
+            .nav-item button {
+                padding: 0.5rem 1rem;
+            }
+
+            .instagram-icon {
+                width: 100px; /* Ukuran ikon lebih kecil di HP */
+                height: 100px;
+            }
+
+            .home-text {
+                font-size: 1rem;
+            }
+
+            .page-text, .contact-link {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item"><button onclick="showPage('home')">HOME</button></li>
+                <li class="nav-item"><button onclick="showPage('about')">ABOUT ME</button></li>
+                <li class="nav-item"><button onclick="showPage('contact')">CONTACT ME</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <div id="home" class="page-section active">
+            <a href="https://www.instagram.com/rmdhnnnn212?igsh=MXRidjBzMGdlMmJxNw==" 
+               class="icon-wrapper" 
+               target="_self">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" 
+                     alt="Instagram Logo" 
+                     class="instagram-icon">
+            </a>
+            
+            <p class="home-text">KUNJUNGI INSTAGRAM SAYA</p>
+        </div>
+
+        <div id="about" class="page-section">
+            <p class="page-text">
+                Halo, saya Ramadhan Gusvi Pratama. Terima kasih telah mengunjungi website saya.
+            </p>
+        </div>
+
+        <div id="contact" class="page-section">
+            <a href="mailto:ramadhangusvi8@gmail.com" class="contact-link">
+                ramadhangusvi8@gmail.com
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Website Ini Dibuat Sepenuh Hati
+    </footer>
+
+    <script>
+        /**
+         * Fungsi untuk mengganti konten halaman (Navigasi SPA Sederhana)
+         * @param {string} pageId - ID dari bagian halaman yang akan ditampilkan (home, about, contact)
+         */
+        function showPage(pageId) {
+            // Dapatkan semua bagian halaman
+            const sections = document.querySelectorAll('.page-section');
+            const mainContent = document.querySelector('.content');
+
+            // Sembunyikan semua bagian dengan transisi
+            mainContent.style.opacity = 0;
+
+            setTimeout(() => {
+                sections.forEach(section => {
+                    if (section.id === pageId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+                
+                // Tampilkan kembali dengan transisi
+                mainContent.style.opacity = 1;
+            }, 300); // Tunggu selama durasi transisi CSS
+        }
+    </script>
+</body>
+</html>
